@@ -986,29 +986,37 @@
     </nav>
 
     <!-- Hero Section avec vidéo -->
-    <section class="hero">
-        <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="assets/background.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <img src="assets/logo.png" alt="Odyssée Adgency Logo" class="hero-logo-image">
-            <p class="baseline">L'art de faire voyager vos histoires</p>
-            <a href="#contact" class="cta-button">Embarquez avec nous</a>
-        </div>
-        
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 30 50">
-                <rect x="10" y="10" width="10" height="25" rx="5" />
-                <circle cx="15" cy="15" r="2" fill="#E8D4B8">
-                    <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-            </svg>
-        </div>
-    </section>
+<section class="hero">
+    <div class="hero-video-container">
+        <video 
+            class="hero-video" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto"
+            poster="assets/poster.jpg">
+            <source src="assets/background.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <img src="assets/logo.png" alt="Odyssée Adgency Logo" class="hero-logo-image">
+        <p class="baseline">L'art de faire voyager vos histoires</p>
+        <a href="#contact" class="cta-button">Embarquez avec nous</a>
+    </div>
+    
+    <div class="scroll-indicator">
+        <svg viewBox="0 0 30 50">
+            <rect x="10" y="10" width="10" height="25" rx="5" />
+            <circle cx="15" cy="15" r="2" fill="#E8D4B8">
+                <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+    </div>
+</section>
 
     <!-- Story Section -->
     <section id="story" class="story-section">
@@ -1380,6 +1388,35 @@
                 videoContainer.style.background = 'linear-gradient(135deg, var(--navy) 0%, #1a3a52 50%, var(--teal) 100%)';
             });
         }
+        <script>
+    // Force le chargement et la lecture de la vidéo
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('.hero-video');
+        
+        if (video) {
+            // Tenter de lancer la vidéo
+            video.play().catch(error => {
+                console.log('Autoplay bloqué:', error);
+                // Si l'autoplay est bloqué, essayer après interaction utilisateur
+                document.addEventListener('click', () => {
+                    video.play();
+                }, { once: true });
+            });
+            
+            // Fallback si la vidéo ne charge pas
+            video.addEventListener('error', function(e) {
+                console.error('Erreur chargement vidéo:', e);
+                const videoContainer = document.querySelector('.hero-video-container');
+                videoContainer.style.background = 'linear-gradient(135deg, var(--navy) 0%, #1a3a52 50%, var(--teal) 100%)';
+                video.style.display = 'none';
+            });
+            
+            // Vérifier que la vidéo se charge bien
+            video.addEventListener('loadeddata', function() {
+                console.log('Vidéo chargée avec succès');
+            });
+        }
+    });
     </script>
 </body>
 </html>
