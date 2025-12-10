@@ -6,7 +6,7 @@
     <title>Odyssée Adgency - L'art de faire voyager vos histoires</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,70 +15,70 @@
         }
         
         :root {
-            --navy: #0A1628;
-            --teal: #4A9B9F;
-            --light-blue: #7BB7C9;
-            --sand: #E8D4B8;
+            --primary: #0F172A;
+            --secondary: #1E293B;
+            --accent: #3B82F6;
+            --accent-light: #60A5FA;
+            --text: #334155;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
             --white: #FFFFFF;
-            --accent-gold: #C9A961;
-            --dark-navy: #051018;
+            --border: #E2E8F0;
+            --gradient-1: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --gradient-2: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+            --gradient-3: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
         }
         
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--navy);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
             overflow-x: hidden;
             background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .serif {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
         }
         
-        /* Navigation */
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 5%;
+            padding: 1.5rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: transparent;
         }
         
         .nav-scrolled {
-            background: rgba(10, 22, 40, 0.97);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            padding: 1rem 5%;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            padding: 1rem 6%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         
-        .logo-container {
-            display: flex;
-            align-items: center;
-            z-index: 1001;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.05);
-        }
-        
-        .logo-text {
-            font-size: 1.8rem;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--white);
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            font-family: 'Cormorant Garamond', serif;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-scrolled .logo {
+            color: var(--primary);
         }
         
         .nav-menu {
@@ -88,39 +88,37 @@
             align-items: center;
         }
         
-        .nav-menu li {
-            position: relative;
-        }
-        
         .nav-menu a {
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 400;
+            font-weight: 500;
             transition: all 0.3s ease;
-            letter-spacing: 0.08em;
+            letter-spacing: -0.01em;
             position: relative;
-            text-transform: uppercase;
-            padding: 0.5rem 0;
         }
         
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--teal), var(--light-blue));
-            transition: width 0.3s ease;
+        .nav-scrolled .nav-menu a {
+            color: var(--text);
         }
         
         .nav-menu a:hover {
-            color: var(--teal);
+            color: var(--accent);
         }
         
-        .nav-menu a:hover::after {
-            width: 100%;
+        .nav-cta {
+            background: var(--accent);
+            color: var(--white) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
         }
         
         .burger {
@@ -129,98 +127,168 @@
             gap: 6px;
             cursor: pointer;
             z-index: 1001;
-            padding: 0.5rem;
         }
         
         .burger span {
-            width: 28px;
-            height: 2.5px;
+            width: 25px;
+            height: 2px;
             background: var(--white);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             border-radius: 2px;
         }
         
-        /* Hero Section */
+        .nav-scrolled .burger span {
+            background: var(--primary);
+        }
+        
+        /* ===== HERO SECTION ===== */
         .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .hero-video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--navy) 0%, #1a3a52 50%, var(--teal) 100%);
+            padding: 0 6%;
         }
         
-        .hero-video {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            opacity: 0.85;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
         }
         
-        .hero-overlay {
+        .hero::after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(10, 22, 40, 0.5) 50%, rgba(74, 155, 159, 0.65) 100%);
-            z-index: 1;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
         
         .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            color: var(--white);
-            z-index: 10;
-            padding: 0 2rem;
-            max-width: 1100px;
             position: relative;
+            z-index: 10;
         }
         
-        .hero-logo-image {
-            width: 240px;
-            height: auto;
-            margin: 0 auto 3rem;
+        .hero-label {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-light);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
             opacity: 0;
-            animation: fadeInScale 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-            transition: transform 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
         
-        .hero-logo-image:hover {
-            transform: scale(1.05);
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
         }
         
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #CBD5E1;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            font-weight: 400;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: -0.01em;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
         }
         
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -228,351 +296,231 @@
             }
         }
         
-        .baseline {
-            font-size: 2rem;
-            font-style: italic;
-            color: var(--sand);
-            margin-bottom: 4rem;
-            font-weight: 300;
-            font-family: 'Cormorant Garamond', serif;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            letter-spacing: 0.02em;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
-        }
-        
-        .cta-button {
-            background: transparent;
-            color: var(--white);
-            padding: 1.3rem 3.5rem;
-            border: 2.5px solid var(--teal);
-            border-radius: 0;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--teal), var(--light-blue));
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-        
-        .cta-button:hover {
-            border-color: var(--light-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(74, 155, 159, 0.4);
-        }
-        
-        .cta-button:hover::before {
-            left: 0;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.2s forwards, bounce 2s ease-in-out 2s infinite;
-            cursor: pointer;
-        }
-        
-        @keyframes fadeIn {
-            to { opacity: 0.8; }
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(12px); }
-        }
-        
-        .scroll-indicator svg {
-            width: 32px;
-            height: 52px;
-            stroke: var(--sand);
-            fill: none;
-            stroke-width: 2;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-        }
-        
-        /* Sections */
+        /* ===== SECTIONS ===== */
         section {
-            padding: 8rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 8rem 6%;
             position: relative;
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
         }
         
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .section-number {
-            font-size: 10rem;
-            font-weight: 300;
-            color: rgba(74, 155, 159, 0.06);
-            position: absolute;
-            top: 1rem;
-            left: 5%;
-            font-family: 'Cormorant Garamond', serif;
-            z-index: 0;
-            line-height: 1;
+        .section-label {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
         
         .section-title {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--navy);
-            font-weight: 300;
-            letter-spacing: 0.03em;
-            font-family: 'Cormorant Garamond', serif;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s;
-        }
-        
-        section.visible .section-title {
-            opacity: 1;
-            transform: translateX(0);
+            letter-spacing: -0.02em;
         }
         
         .section-subtitle {
-            font-size: 1.4rem;
-            color: var(--teal);
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            line-height: 1.7;
             margin-bottom: 4rem;
-            font-weight: 300;
-            font-style: italic;
-            font-family: 'Cormorant Garamond', serif;
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
         }
         
-        section.visible .section-subtitle {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Story Section */
+        /* ===== STORY SECTION ===== */
         .story-section {
-            background: linear-gradient(to bottom, var(--white) 0%, #f8f9fb 100%);
+            background: var(--bg-light);
         }
         
         .story-content {
             max-width: 900px;
             margin: 0 auto;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        
+        .story-text {
             font-size: 1.15rem;
-            line-height: 2;
-            color: var(--navy);
-            position: relative;
-            z-index: 1;
+            line-height: 1.8;
+            color: var(--text);
         }
         
-        .story-content p {
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-        
-        section.visible .story-content p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .story-content p:nth-child(1) { transition-delay: 0.4s; }
-        .story-content p:nth-child(2) { transition-delay: 0.5s; }
-        .story-content p:nth-child(3) { transition-delay: 0.6s; }
-        .story-content p:nth-child(4) { transition-delay: 0.7s; }
-        .story-content p:nth-child(5) { transition-delay: 0.8s; }
-        .story-content p:nth-child(6) { transition-delay: 0.9s; }
-        .story-content p:nth-child(7) { transition-delay: 1s; }
-        
-        .story-content p:first-of-type::first-letter {
-            font-size: 5.5rem;
-            font-weight: 400;
-            line-height: 1;
-            float: left;
-            margin: 0.1rem 0.8rem 0 0;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--teal);
+        .story-text p {
+            margin-bottom: 1.5rem;
         }
         
         .story-highlight {
+            color: var(--accent);
             font-weight: 600;
-            color: var(--teal);
         }
         
-        .story-quote {
-            font-size: 2.4rem;
-            font-style: italic;
-            color: var(--navy);
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
             text-align: center;
-            margin: 4rem 0;
-            padding: 3.5rem 2rem;
-            position: relative;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            line-height: 1.5;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
-        .story-quote::before,
-        .story-quote::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--teal), transparent);
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
         
-        .story-quote::before { top: 0; }
-        .story-quote::after { bottom: 0; }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
         
-        /* Services Grid */
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-top: 4rem;
         }
         
         .service-card {
             background: var(--white);
             padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-            border: 1px solid rgba(74, 155, 159, 0.1);
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
         }
-        
-        section.visible .service-card {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        
-        .service-card:nth-child(1) { transition-delay: 0.5s; }
-        .service-card:nth-child(2) { transition-delay: 0.6s; }
-        .service-card:nth-child(3) { transition-delay: 0.7s; }
-        .service-card:nth-child(4) { transition-delay: 0.8s; }
-        .service-card:nth-child(5) { transition-delay: 0.9s; }
-        .service-card:nth-child(6) { transition-delay: 1s; }
         
         .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 3px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--teal), var(--light-blue));
-            transition: height 0.5s ease;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:nth-child(2)::before {
+            background: var(--gradient-2);
+        }
+        
+        .service-card:nth-child(3)::before {
+            background: var(--gradient-3);
+        }
+        
+        .service-card:nth-child(4)::before {
+            background: var(--gradient-1);
+        }
+        
+        .service-card:nth-child(5)::before {
+            background: var(--gradient-2);
+        }
+        
+        .service-card:nth-child(6)::before {
+            background: var(--gradient-3);
         }
         
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 50px rgba(74, 155, 159, 0.15);
-            border-color: rgba(74, 155, 159, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border-color: transparent;
         }
         
         .service-card:hover::before {
-            height: 100%;
-        }
-        
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(74, 155, 159, 0.02) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .service-card:hover::after {
-            opacity: 1;
+            transform: scaleX(1);
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 2rem;
-            stroke: var(--teal);
-            fill: none;
-            stroke-width: 1.5;
-            transition: all 0.4s ease;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:nth-child(2) .service-icon {
+            background: var(--gradient-2);
+        }
+        
+        .service-card:nth-child(3) .service-icon {
+            background: var(--gradient-3);
+        }
+        
+        .service-card:nth-child(4) .service-icon {
+            background: var(--gradient-1);
+        }
+        
+        .service-card:nth-child(5) .service-icon {
+            background: var(--gradient-2);
+        }
+        
+        .service-card:nth-child(6) .service-icon {
+            background: var(--gradient-3);
         }
         
         .service-card:hover .service-icon {
-            stroke: var(--navy);
             transform: scale(1.1) rotate(5deg);
         }
         
         .service-card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1.2rem;
-            color: var(--navy);
-            font-weight: 400;
-            font-family: 'Cormorant Garamond', serif;
-            transition: color 0.3s ease;
-        }
-        
-        .service-card:hover h3 {
-            color: var(--teal);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
         }
         
         .service-card p {
-            color: #5a6c7d;
-            line-height: 1.9;
+            color: var(--text-light);
+            line-height: 1.7;
             font-size: 1rem;
         }
         
-        /* Values Section */
+        /* ===== VALUES SECTION ===== */
         .values-section {
-            background: linear-gradient(135deg, var(--navy) 0%, #162b3f 100%);
+            background: var(--primary);
             color: var(--white);
-            position: relative;
-            overflow: hidden;
         }
         
-        .values-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 700px;
-            height: 700px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(74, 155, 159, 0.12) 0%, transparent 70%);
+        .values-section .section-label {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-light);
         }
         
         .values-section .section-title {
@@ -580,148 +528,104 @@
         }
         
         .values-section .section-subtitle {
-            color: var(--sand);
-        }
-        
-        .values-section .section-number {
-            color: rgba(255, 255, 255, 0.04);
+            color: #CBD5E1;
         }
         
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
             margin-top: 4rem;
-            position: relative;
-            z-index: 1;
         }
         
-        .value-item {
+        .value-card {
             text-align: center;
-            padding: 2rem;
-            transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-            opacity: 0;
-            transform: translateY(50px);
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            border: 1px solid rgba(74, 155, 159, 0.1);
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
         
-        section.visible .value-item {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .value-item:nth-child(1) { transition-delay: 0.5s; }
-        .value-item:nth-child(2) { transition-delay: 0.7s; }
-        .value-item:nth-child(3) { transition-delay: 0.9s; }
-        
-        .value-item:hover {
-            transform: translateY(-12px);
-            background: rgba(74, 155, 159, 0.08);
-            border-color: rgba(74, 155, 159, 0.3);
-        }
-        
-        .value-icon-container {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 2rem;
-            position: relative;
-        }
-        
-        .value-icon-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--teal);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .value-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(59, 130, 246, 0.5);
         }
         
         .value-icon {
-            width: 65px;
-            height: 65px;
-            stroke: var(--teal);
-            fill: none;
-            stroke-width: 1.5;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.4s ease;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
         }
         
-        .value-item:hover .value-icon {
-            stroke: var(--light-blue);
-            transform: translate(-50%, -50%) scale(1.1);
+        .value-card:nth-child(2) .value-icon {
+            background: var(--gradient-2);
         }
         
-        .value-item h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            font-weight: 300;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 0.05em;
+        .value-card:nth-child(3) .value-icon {
+            background: var(--gradient-3);
         }
         
-        .value-item p {
-            color: var(--sand);
-            font-size: 1.05rem;
-            line-height: 1.9;
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(360deg);
         }
         
-        /* Projects Grid */
+        .value-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .value-card p {
+            color: #CBD5E1;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        /* ===== PROJECTS SECTION ===== */
+        .projects-section {
+            background: var(--bg-light);
+        }
+        
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
             margin-top: 4rem;
         }
         
         .project-card {
             position: relative;
-            height: 550px;
+            height: 500px;
+            border-radius: 24px;
             overflow: hidden;
             cursor: pointer;
-            background: var(--navy);
-            opacity: 0;
-            transform: scale(0.92);
-            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-            border-radius: 8px;
+            transition: all 0.4s ease;
         }
         
-        section.visible .project-card {
-            opacity: 1;
-            transform: scale(1);
+        .project-card:hover {
+            transform: scale(1.02);
         }
-        
-        .project-card:nth-child(1) { transition-delay: 0.5s; }
-        .project-card:nth-child(2) { transition-delay: 0.7s; }
-        .project-card:nth-child(3) { transition-delay: 0.9s; }
         
         .project-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-            filter: grayscale(30%) brightness(0.85);
-        }
-        
-        .project-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.6s ease;
         }
         
         .project-card:hover .project-image {
-            transform: scale(1.08);
-            filter: grayscale(0%) brightness(1);
+            transform: scale(1.1);
         }
         
         .project-overlay {
@@ -729,846 +633,628 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(10, 22, 40, 0.98) 0%, rgba(10, 22, 40, 0.85) 60%, transparent 100%);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, transparent 100%);
             padding: 3rem;
-            transform: translateY(60%);
-            transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            transform: translateY(20%);
+            transition: transform 0.4s ease;
         }
         
         .project-card:hover .project-overlay {
             transform: translateY(0);
         }
         
-        .project-number {
-            font-size: 5rem;
-            font-weight: 300;
-            color: rgba(74, 155, 159, 0.25);
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1;
+        .project-category {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
         }
         
         .project-overlay h3 {
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--white);
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            font-weight: 300;
-            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
         }
         
         .project-overlay p {
-            color: var(--sand);
-            line-height: 1.8;
-            margin-bottom: 1.8rem;
-            font-size: 1.05rem;
+            color: #CBD5E1;
+            line-height: 1.6;
+            font-size: 1rem;
         }
         
-        .project-tags {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .project-tag {
-            background: rgba(74, 155, 159, 0.1);
-            color: var(--teal);
-            padding: 0.5rem 1.4rem;
-            border: 1px solid var(--teal);
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .project-tag:hover {
-            background: var(--teal);
-            color: var(--white);
-        }
-        
-        /* Team Section */
-        .team-intro {
+        /* ===== TEAM SECTION ===== */
+        .team-content {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 5rem;
-            font-size: 1.25rem;
-            color: #5a6c7d;
-            line-height: 2;
-            position: relative;
-            z-index: 1;
+            margin: 0 auto;
         }
         
         .team-stats {
-            display: flex;
-            justify-content: center;
-            gap: 6rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
         }
         
-        .stat-item {
+        .team-stat-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
             text-align: center;
-            position: relative;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(74, 155, 159, 0.03) 0%, transparent 100%);
-            border-radius: 8px;
+            transition: all 0.3s ease;
         }
         
-        section.visible .stat-item {
+        .team-stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .team-stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .team-stat-card:nth-child(2) .team-stat-number {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .team-stat-card:nth-child(3) .team-stat-number {
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .team-stat-label {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact-section .section-label {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-light);
+        }
+        
+        .contact-section .section-title {
+            color: var(--white);
+        }
+        
+        .contact-section .section-subtitle {
+            color: #CBD5E1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:nth-child(2) .contact-icon {
+            background: var(--gradient-2);
+        }
+        
+        .contact-card:nth-child(3) .contact-icon {
+            background: var(--gradient-3);
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .contact-card a,
+        .contact-card p {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent-light);
+        }
+        
+        .contact-cta {
+            margin-top: 4rem;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--secondary);
+            color: #94A3B8;
+            padding: 3rem 6%;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        footer p:first-child {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .stat-item:nth-child(1) { transition-delay: 0.5s; }
-        .stat-item:nth-child(2) { transition-delay: 0.7s; }
-        .stat-item:nth-child(3) { transition-delay: 0.9s; }
-        
-        .stat-item:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(74, 155, 159, 0.08) 0%, transparent 100%);
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .services-grid,
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
         
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--teal), transparent);
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 5%;
+            }
+            
+            nav {
+                padding: 1.2rem 5%;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                height: 100vh;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                width: 80%;
+                padding: 6rem 2rem 3rem;
+                transition: right 0.4s ease;
+                justify-content: flex-start;
+                gap: 2rem;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .burger {
+                display: flex;
+            }
+            
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid,
+            .values-grid,
+            .projects-grid,
+            .contact-methods,
+            .team-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .story-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                height: 400px;
+            }
         }
         
-        .stat-number {
-            font-size: 5.5rem;
-            color: var(--teal);
-            font-weight: 300;
-            display: block;
-            font-family: 'Cormorant Garamond', serif;
-            margin-top: 1.5rem;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            color: var(--navy);
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-top: 0.8rem;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, var(--navy) 0%, #1a3a52 50%, #2a4a62 100%);
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(74, 155, 159, 0.18) 0%, transparent 70%);
-        }
-        
-        .contact-section::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            right: -15%;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(123, 183, 201, 0.12) 0%, transparent 70%);
-}.contact-section .section-title {
-        color: var(--white);
-    }
-    
-    .contact-section .section-subtitle {
-        color: var(--sand);
-    }
-    
-    .contact-section .section-number {
-        color: rgba(255, 255, 255, 0.03);
-    }
-    
-    .contact-content {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .contact-content p {
-        font-size: 1.5rem;
-        margin-bottom: 3.5rem;
-        color: var(--sand);
-        line-height: 2;
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 300;
-    }
-    
-    .contact-info {
-        display: flex;
-        justify-content: center;
-        gap: 4rem;
-        margin-top: 4rem;
-        flex-wrap: wrap;
-    }
-    
-    .contact-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
-        transition: all 0.4s ease;
-        opacity: 0;
-        transform: translateY(30px);
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 8px;
-        border: 1px solid rgba(74, 155, 159, 0.15);
-    }
-    
-    section.visible .contact-item {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .contact-item:nth-child(1) { transition-delay: 0.7s; }
-    .contact-item:nth-child(2) { transition-delay: 0.9s; }
-    .contact-item:nth-child(3) { transition-delay: 1.1s; }
-    
-    .contact-item:hover {
-        transform: translateY(-8px);
-        background: rgba(74, 155, 159, 0.1);
-        border-color: rgba(74, 155, 159, 0.4);
-    }
-    
-    .contact-icon {
-        width: 55px;
-        height: 55px;
-        stroke: var(--teal);
-        fill: none;
-        stroke-width: 1.5;
-        transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover .contact-icon {
-        stroke: var(--light-blue);
-        transform: scale(1.1);
-    }
-    
-    .contact-item a,
-    .contact-item span {
-        color: var(--white);
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-        letter-spacing: 0.02em;
-    }
-    
-    .contact-item a:hover {
-        color: var(--teal);
-    }
-    
-    /* Footer */
-    footer {
-        background: var(--dark-navy);
-        color: var(--sand);
-        padding: 3rem 5%;
-        text-align: center;
-        border-top: 1px solid rgba(74, 155, 159, 0.15);
-    }
-    
-    footer p {
-        font-size: 0.95rem;
-        font-weight: 300;
-        letter-spacing: 0.05em;
-        opacity: 0.9;
-    }
-    
-    footer p:first-child {
-        margin-bottom: 0.8rem;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-        .section-title {
-            font-size: 3.5rem;
-        }
-        
-        .section-number {
-            font-size: 8rem;
-        }
-    }
-    
-    @media (max-width: 968px) {
-        .hero-logo-image {
-            width: 180px;
-        }
-        
-        .baseline {
-            font-size: 1.5rem;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-        }
-        
-        .section-number {
-            font-size: 6rem;
-        }
-        
-        .story-quote {
-            font-size: 1.8rem;
-        }
-        
-        .services-grid,
-        .projects-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .team-stats {
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            gap: 2.5rem;
-        }
-        
-        section {
-            padding: 6rem 5%;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        nav {
-            padding: 1.2rem 5%;
-        }
-        
-        .nav-menu {
-            position: fixed;
-            right: -100%;
-            top: 0;
-            height: 100vh;
-            flex-direction: column;
-            background: rgba(10, 22, 40, 0.98);
-            backdrop-filter: blur(30px);
-            width: 75%;
-            text-align: center;
-            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 8rem 2rem 3rem;
-            gap: 2.5rem;
-            justify-content: flex-start;
-            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
-        }
-        
-        .nav-menu.active {
-            right: 0;
-        }
-        
-        .nav-menu a {
-            font-size: 1.1rem;
-        }
-        
-        .burger {
-            display: flex;
-        }
-        
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-        
-        .hero-logo-image {
-            width: 150px;
-        }
-        
-        .baseline {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .cta-button {
-            padding: 1.1rem 2.5rem;
-            font-size: 0.9rem;
-        }
-        
-        section {
-            padding: 5rem 5%;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-        }
-        
-        .section-number {
-            font-size: 5rem;
-            top: 0.5rem;
-        }
-        
-        .story-quote {
-            font-size: 1.5rem;
-            padding: 2.5rem 1.5rem;
-        }
-        
-        .service-card,
-        .project-card {
-            min-width: auto;
-        }
-        
-        .project-card {
-            height: 450px;
-        }
-        
-        .stat-number {
-            font-size: 4.5rem;
-        }
-        
-        .value-icon-container {
-            width: 110px;
-            height: 110px;
-        }
-        
-        .value-icon {
-            width: 55px;
-            height: 55px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .hero-logo-image {
-            width: 130px;
-        }
-        
-        .baseline {
-            font-size: 1.1rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
-        
-        .section-number {
-            font-size: 4rem;
-        }
-        
-        .story-quote {
-            font-size: 1.3rem;
-        }
-        
-        .cta-button {
-            padding: 1rem 2rem;
-            font-size: 0.85rem;
-        }
-        
-        .service-card,
-        .value-item {
-            padding: 2rem;
-        }
-        
-        .contact-info {
-            gap: 2rem;
-        }
-        
-        .nav-menu {
-            width: 85%;
-        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;}
     }
 </style></head>
 <body>
+    <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo-container">
-            <span class="logo-text serif">ODYSSÉE</span>
-        </div>
+        <div class="logo">ODYSSÉE</div>
         <ul class="nav-menu" id="navMenu">
             <li><a href="#story">Notre Histoire</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#values">Valeurs</a></li>
-            <li><a href="#projects">Réalisations</a></li>
+            <li><a href="#projects">Projets</a></li>
             <li><a href="#team">Équipe</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
         <div class="burger" id="burger">
             <span></span>
             <span></span>
             <span></span>
         </div>
-    </nav><section class="hero">
-    <div class="hero-video-container">
-        <video 
-            class="hero-video" 
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            preload="auto">
-            <source src="assets/background.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="hero-overlay"></div>
-    
+    </nav><!-- Hero Section -->
+<section class="hero">
     <div class="hero-content">
-        <img src="assets/logo.png" alt="Odyssée Adgency Logo" class="hero-logo-image">
-        <p class="baseline">L'art de faire voyager vos histoires</p>
-        <a href="#contact" class="cta-button">Embarquez avec nous</a>
+        <div class="hero-label">✨ Agence de Communication 360°</div>
+        <h1 class="serif">L'art de faire voyager<br>vos <span class="gradient-text">histoires</span></h1>
+        <p class="hero-subtitle">Spécialistes du tourisme, du voyage et de l'hôtellerie. Nous transformons vos émotions en stratégies de marque puissantes et mémorables.</p>
+        <div class="hero-cta">
+            <a href="#contact" class="btn-primary">Démarrer un projet</a>
+            <a href="#services" class="btn-secondary">Découvrir nos services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section id="story" class="story-section">
+    <div class="fade-in">
+        <span class="section-label">Notre Odyssée</span>
+        <h2 class="section-title">D'un Erasmus<br>à une agence</h2>
+        <p class="section-subtitle">Six étudiants, une passion commune, une vision partagée.</p>
     </div>
     
-    <div class="scroll-indicator" onclick="document.getElementById('story').scrollIntoView({behavior: 'smooth'})">
-        <svg viewBox="0 0 30 50">
-            <rect x="10" y="10" width="10" height="25" rx="5" />
-            <circle cx="15" cy="15" r="2" fill="#E8D4B8">
-                <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite" />
-            </circle>
-        </svg>
-    </div>
-</section>
-
-<section id="story" class="story-section">
-    <h2 class="section-title serif">Notre Odyssée</h2>
-    <p class="section-subtitle">D'un Erasmus à une agence</p>
-    <div class="story-content">
-        <p>Tout a commencé bien loin d'un bureau.</p>
-        <p>Six étudiants, six caractères, un Erasmus. Des valises trop pleines, des nuits à refaire le monde et surtout, <span class="story-highlight">une passion commune : raconter des histoires.</span></p>
-        <p>Entre deux avions, des découvertes culturelles et mille anecdotes partagées, une évidence s'est imposée : nous voulions continuer le voyage, ensemble. Pas en tant que touristes, mais en créateurs d'expériences.</p>
-        <p>De cette évidence est née <span class="story-highlight">Odyssée Adgency</span>, une agence de communication globale 360° spécialisée dans le tourisme, le voyage et l'hôtellerie. Une équipe jeune, créative et engagée qui transforme les émotions du voyage en stratégies de marque puissantes, visuelles et mémorables.</p>
-        
-        <div class="story-quote">
-            "Nous avons l'art de faire voyager vos histoires…"
+    <div class="story-grid">
+        <div class="story-text fade-in">
+            <p>Tout a commencé bien loin d'un bureau. Six étudiants, six caractères, un Erasmus. Des valises trop pleines, des nuits à refaire le monde et surtout, <span class="story-highlight">une passion commune : raconter des histoires.</span></p>
+            <p>Entre deux avions, des découvertes culturelles et mille anecdotes partagées, une évidence s'est imposée : nous voulions continuer le voyage, ensemble.</p>
+            <p>De cette évidence est née <span class="story-highlight">Odyssée Adgency</span>, une agence de communication globale 360° spécialisée dans le tourisme, le voyage et l'hôtellerie.</p>
+            <p><strong>Chez Odyssée Adgency, on ne promet pas de faire rêver. On le provoque.</strong></p>
         </div>
         
-        <p>De la stratégie de marque au social media, du branding à la création de campagnes digitales, nous embarquons nos clients dans des projets où chaque escale a du sens — et chaque concept, une destination.</p>
-        <p><span class="story-highlight">Notre boussole : la curiosité.</span><br>
-        <span class="story-highlight">Notre carburant : l'audace.</span><br>
-        <span class="story-highlight">Notre horizon : des marques qui inspirent l'évasion, la découverte et l'émotion vraie.</span></p>
-        <p>Chez Odyssée Adgency, on ne promet pas de faire rêver.<br><strong>On le provoque.</strong></p>
+        <div class="story-stats">
+            <div class="stat-card fade-in">
+                <div class="stat-number serif">2025</div>
+                <div class="stat-label">Année de création</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number serif">6</div>
+                <div class="stat-label">Associés fondateurs</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number serif">360°</div>
+                <div class="stat-label">Approche globale</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number serif">∞</div>
+                <div class="stat-label">Possibilités créatives</div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- Services Section -->
 <section id="services">
-    <h2 class="section-title serif">Nos Escales Créatives</h2>
-    <p class="section-subtitle">Une approche 360° pour faire décoller votre marque</p>
+    <div class="fade-in">
+        <span class="section-label">Nos Services</span>
+        <h2 class="section-title">Escales créatives</h2>
+        <p class="section-subtitle">Une approche 360° pour faire décoller votre marque dans l'univers du voyage.</p>
+    </div>
+    
     <div class="services-grid">
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="35"/>
-                <circle cx="50" cy="50" r="25"/>
-                <circle cx="50" cy="50" r="15"/>
-                <circle cx="50" cy="50" r="5" fill="#4A9B9F"/>
-                <line x1="50" y1="15" x2="50" y2="5"/>
-                <line x1="50" y1="85" x2="50" y2="95"/>
-                <line x1="15" y1="50" x2="5" y2="50"/>
-                <line x1="85" y1="50" x2="95" y2="50"/>
-            </svg>
+        <div class="service-card fade-in">
+            <div class="service-icon">🎯</div>
             <h3>Stratégie de Marque</h3>
-            <p>Positionnement, identité, storytelling. Nous définissons la boussole qui guidera toutes vos communications et donnera du sens à votre voyage de marque.</p>
+            <p>Positionnement, identité, storytelling. Nous définissons la boussole qui guidera toutes vos communications.</p>
         </div>
         
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="50,10 20,90 80,90" />
-                <circle cx="50" cy="45" r="15"/>
-                <path d="M 30 60 Q 50 50, 70 60"/>
-                <line x1="35" y1="75" x2="65" y2="75"/>
-            </svg>
-            <h3>Branding & Identité Visuelle</h3>
-            <p>Logos, chartes graphiques, univers visuels. Nous créons des identités qui marquent les esprits et incarnent l'essence de votre destination.</p>
+        <div class="service-card fade-in">
+            <div class="service-icon">✨</div>
+            <h3>Branding & Identité</h3>
+            <p>Logos, chartes graphiques, univers visuels qui incarnent l'essence de votre destination.</p>
         </div>
         
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="10" width="60" height="80" rx="5"/>
-                <circle cx="50" cy="25" r="8"/>
-                <line x1="30" y1="40" x2="70" y2="40"/>
-                <line x1="30" y1="50" x2="70" y2="50"/>
-                <line x1="30" y1="60" x2="60" y2="60"/>
-                <path d="M 35 75 L 45 70 L 55 75 L 65 70" stroke-linecap="round"/>
-            </svg>
-            <h3>Social Media & Content</h3>
-            <p>Stratégie éditoriale, création de contenu, community management. Nous animons vos réseaux avec des histoires qui engagent et inspirent.</p>
+        <div class="service-card fade-in">
+            <div class="service-icon">📱</div>
+            <h3>Social Media</h3>
+            <p>Stratégie éditoriale, création de contenu et community management qui engagent.</p>
         </div>
         
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 20 80 Q 35 60, 50 50 T 80 20"/>
-                <circle cx="20" cy="80" r="5" fill="#4A9B9F"/>
-                <circle cx="50" cy="50" r="5" fill="#4A9B9F"/>
-                <circle cx="80" cy="20" r="5" fill="#4A9B9F"/>
-                <polygon points="80,10 90,20 80,30" fill="#4A9B9F"/>
-                <path d="M 15 85 L 25 75 M 45 55 L 55 45 M 75 25 L 85 15" stroke-linecap="round"/>
-            </svg>
+        <div class="service-card fade-in">
+            <div class="service-icon">🚀</div>
             <h3>Campagnes Digitales</h3>
-            <p>Publicité digitale, SEA, influence marketing. Nous orchestrons des campagnes percutantes qui génèrent de la visibilité et des conversions.</p>
+            <p>Publicité digitale, SEA, influence marketing pour générer visibilité et conversions.</p>
         </div>
         
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <rect x="15" y="25" width="70" height="50" rx="3"/>
-                <circle cx="50" cy="50" r="15"/>
-                <polygon points="45,50 55,45 55,55" fill="#4A9B9F"/>
-                <rect x="20" y="20" width="15" height="10" rx="2"/>
-                <line x1="50" y1="15" x2="50" y2="25"/>
-                <circle cx="50" cy="12" r="3" fill="#4A9B9F"/>
-            </svg>
+        <div class="service-card fade-in">
+            <div class="service-icon">🎬</div>
             <h3>Production Créative</h3>
-            <p>Photo, vidéo, motion design. Nous produisons des contenus premium qui capturent l'émotion du voyage et subliment vos expériences.</p>
+            <p>Photo, vidéo, motion design pour capturer l'émotion du voyage.</p>
         </div>
         
-        <div class="service-card">
-            <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="30" width="60" height="45" rx="2"/>
-                <line x1="20" y1="40" x2="80" y2="40"/>
-                <circle cx="25" cy="35" r="2" fill="#4A9B9F"/>
-                <circle cx="32" cy="35" r="2" fill="#4A9B9F"/>
-                <circle cx="39" cy="35" r="2" fill="#4A9B9F"/>
-                <rect x="30" y="50" width="20" height="15"/>
-                <rect x="55" y="50" width="15" height="10"/>
-                <rect x="55" y="62" width="15" height="3"/>
-                <path d="M 40 25 L 50 15 L 60 25" stroke-linejoin="round"/>
-            </svg>
+        <div class="service-card fade-in">
+            <div class="service-icon">💻</div>
             <h3>Digital Experience</h3>
-            <p>Sites web, UX/UI, expériences immersives. Nous concevons des plateformes digitales qui transforment chaque visite en aventure.</p>
+            <p>Sites web, UX/UI, expériences immersives qui transforment chaque visite en aventure.</p>
         </div>
     </div>
 </section>
 
+<!-- Values Section -->
 <section id="values" class="values-section">
-    <h2 class="section-title serif">Notre ADN</h2>
-    <p class="section-subtitle">Les valeurs qui nous guident</p>
+    <div class="fade-in">
+        <span class="section-label">Notre ADN</span>
+        <h2 class="section-title">Les valeurs qui<br>nous guident</h2>
+        <p class="section-subtitle">Notre boussole, notre carburant, notre cap.</p>
+    </div>
+    
     <div class="values-grid">
-        <div class="value-item">
-            <div class="value-icon-container">
-                <div class="value-icon-bg"></div>
-                <svg class="value-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="35"/>
-                    <circle cx="50" cy="50" r="5" fill="#4A9B9F"/>
-                    <line x1="50" y1="50" x2="50" y2="20" stroke-width="2"/>
-                    <polygon points="50,15 45,25 55,25" fill="#4A9B9F" stroke="none"/>
-                    <line x1="50" y1="15" x2="70" y2="30" stroke-width="1" opacity="0.5"/>
-                    <line x1="50" y1="15" x2="75" y2="50" stroke-width="1" opacity="0.5"/>
-                    <text x="50" y="90" text-anchor="middle" font-size="12" fill="#4A9B9F" font-family="Montserrat">N</text>
-                </svg>
-            </div>
+        <div class="value-card fade-in">
+            <div class="value-icon">🧭</div>
             <h3>Curiosité</h3>
-            <p>Notre boussole. Nous explorons sans cesse de nouveaux horizons créatifs pour offrir des stratégies innovantes et différenciantes.</p>
+            <p>Notre boussole. Nous explorons sans cesse de nouveaux horizons créatifs pour offrir des stratégies innovantes.</p>
         </div>
         
-        <div class="value-item">
-            <div class="value-icon-container">
-                <div class="value-icon-bg"></div>
-                <svg class="value-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 30 70 L 50 20 L 70 70" stroke-linejoin="miter" stroke-width="2"/>
-                    <path d="M 35 55 L 65 55" stroke-width="2"/>
-                    <circle cx="50" cy="20" r="3" fill="#4A9B9F"/>
-                    <path d="M 20 75 L 30 70 M 70 70 L 80 75" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M 45 25 Q 40 30, 40 40 M 55 25 Q 60 30, 60 40" stroke-width="1" opacity="0.6"/>
-                </svg>
-            </div>
+        <div class="value-card fade-in">
+            <div class="value-icon">⚡</div>
             <h3>Audace</h3>
-            <p>Notre carburant. Nous osons des concepts inattendus et des prises de parole qui sortent du lot pour faire briller vos marques.</p>
+            <p>Notre carburant. Nous osons des concepts inattendus et des prises de parole qui sortent du lot.</p>
         </div>
         
-        <div class="value-item">
-            <div class="value-icon-container">
-                <div class="value-icon-bg"></div>
-                <svg class="value-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 20 60 Q 30 40, 40 50 T 60 50 T 80 60" stroke-width="2"/>
-                    <path d="M 20 70 Q 30 55, 40 65 T 60 65 T 80 75" stroke-width="2" opacity="0.6"/>
-                    <circle cx="50" cy="30" r="15"/>
-                    <path d="M 50 45 Q 50 60, 35 70" stroke-width="1.5"/>
-                    <path d="M 50 45 Q 50 60, 65 70" stroke-width="1.5"/>
-                </svg>
-            </div>
+        <div class="value-card fade-in">
+            <div class="value-icon">💫</div>
             <h3>Authenticité</h3>
-            <p>Notre cap. Nous créons des histoires vraies qui résonnent avec vos audiences et créent des connexions émotionnelles durables.</p>
+            <p>Notre cap. Nous créons des histoires vraies qui résonnent et créent des connexions durables.</p>
         </div>
     </div>
 </section>
 
-<section id="projects">
-    <h2 class="section-title serif">Nos Aventures</h2>
-    <p class="section-subtitle">Des projets qui ont marqué le voyage</p>
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="fade-in">
+        <span class="section-label">Nos Réalisations</span>
+        <h2 class="section-title">Des projets qui<br>ont marqué le voyage</h2>
+        <p class="section-subtitle">Une sélection de nos aventures créatives les plus mémorables.</p>
+    </div>
+    
     <div class="projects-grid">
-        <div class="project-card">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A9B9F;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237BB7C9;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='800' height='600'/%3E%3Cpath d='M0,300 Q200,200 400,300 T800,300' stroke='white' stroke-width='3' fill='none' opacity='0.3'/%3E%3Cpath d='M0,350 Q200,250 400,350 T800,350' stroke='white' stroke-width='2' fill='none' opacity='0.2'/%3E%3Ccircle cx='400' cy='200' r='80' fill='white' opacity='0.2'/%3E%3C/svg%3E" alt="Renaissance Méditerranée" class="project-image">
+        <div class="project-card fade-in">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667EEA'/%3E%3Cstop offset='100%25' style='stop-color:%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='800' height='600'/%3E%3Cpath d='M0,300 Q200,200 400,300 T800,300' stroke='white' stroke-width='3' fill='none' opacity='0.3'/%3E%3C/svg%3E" alt="Renaissance Méditerranée" class="project-image">
             <div class="project-overlay">
-                <span class="project-number">01</span>
+                <span class="project-category">Branding</span>
                 <h3>Renaissance Méditerranée</h3>
-                <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec et une stratégie social media premium.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Branding</span>
-                    <span class="project-tag">Social Media</span>
-                </div>
+                <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec.</p>
             </div>
         </div>
         
-        <div class="project-card">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%237BB7C9;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23E8D4B8;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='800' height='600'/%3E%3Cpath d='M100,500 L200,300 L300,400 L400,200 L500,350 L600,250 L700,400' stroke='white' stroke-width='4' fill='none' opacity='0.4'/%3E%3Ccircle cx='200' cy='300' r='8' fill='white'/%3E%3Ccircle cx='400' cy='200' r='8' fill='white'/%3E%3Ccircle cx='600' cy='250' r='8' fill='white'/%3E%3C/svg%3E" alt="Horizons Nouveaux" class="project-image">
+        <div class="project-card fade-in">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23F093FB'/%3E%3Cstop offset='100%25' style='stop-color:%23F5576C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g2)' width='800' height='600'/%3E%3Cpath d='M100,500 L200,300 L400,200 L600,250 L700,400' stroke='white' stroke-width='4' fill='none' opacity='0.4'/%3E%3C/svg%3E" alt="Horizons Nouveaux" class="project-image">
             <div class="project-overlay">
-                <span class="project-number">02</span>
+                <span class="project-category">Campagne 360°</span>
                 <h3>Horizons Nouveaux</h3>
-                <p>Campagne digitale 360° pour rajeunir l'image d'une destination vacances et capter les 25-40 ans CSP+ en quête d'authenticité.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Campagne 360°</span>
-                    <span class="project-tag">Influence</span>
-                </div>
+                <p>Campagne digitale pour rajeunir l'image d'une destination et capter les 25-40 ans CSP+.</p>
             </div>
         </div>
         
-        <div class="project-card">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230A1628;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%234A9B9F;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='800' height='600'/%3E%3Cpolygon points='400,150 350,250 450,250' fill='%23E8D4B8' opacity='0.3'/%3E%3Crect x='300' y='250' width='200' height='200' fill='%23E8D4B8' opacity='0.2'/%3E%3Ccircle cx='400' cy='350' r='60' fill='none' stroke='%23E8D4B8' stroke-width='2' opacity='0.4'/%3E%3C/svg%3E" alt="Luxe & Navigation" class="project-image">
+        <div class="project-card fade-in">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234FACFE'/%3E%3Cstop offset='100%25' style='stop-color:%2300F2FE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g3)' width='800' height='600'/%3E%3Ccircle cx='400' cy='300' r='120' fill='white' opacity='0.2'/%3E%3C/svg%3E" alt="Luxe & Navigation" class="project-image">
             <div class="project-overlay">
-                <span class="project-number">03</span>
+                <span class="project-category">UX/UI Design</span>
                 <h3>Luxe & Navigation</h3>
-                <p>Création d'une expérience digitale immersive pour une compagnie de yachts de luxe, alliant storytelling premium et esthétique épurée.</p>
-                <div class="project-tags">
-                    <span class="project-tag">UX/UI</span>
-                    <span class="project-tag">Production</span>
-                </div>
+                <p>Expérience digitale immersive pour une compagnie de yachts de luxe.</p>
             </div>
         </div>
-    </div>
-</section>
-
-<section id="team">
-    <h2 class="section-title serif">L'Équipage</h2>
-    <p class="section-subtitle">Six talents, une vision</p>
-    <div class="team-intro">
-        <p>Nous sommes six associé(e)s réuni(e)s par une passion commune et des compétences complémentaires. Stratèges, créatifs, digital natives : notre diversité fait notre force.</p>
-    </div>
-    <div class="team-stats">
-        <div class="stat-item">
-            <span class="stat-number serif">6</span>
-            <span class="stat-label">Associé(e)s</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number serif">360°</span>
-            <span class="stat-label">Expertise</span>
-        </div><div class="stat-item">
-            <span class="stat-number serif">100%</span>
-            <span class="stat-label">Passion</span>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="contact-section">
-    <h2 class="section-title serif">Embarquez avec Nous</h2>
-    <div class="contact-content">
-        <p>Prêt à faire voyager votre marque ? Échangeons sur votre prochain projet et dessinons ensemble votre prochaine destination.</p>
-        <a href="mailto:contact@odyssee-adgency.com" class="cta-button">Prenons rendez-vous</a>
         
-        <div class="contact-info">
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="15" y="30" width="70" height="45" rx="5"/>
-                    <path d="M 15 35 L 50 55 L 85 35" stroke-linejoin="round" stroke-width="2"/>
-                </svg>
-                <a href="mailto:contact@odyssee-adgency.com">contact@odyssee-adgency.com</a>
-            </div>
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 30 25 L 35 20 L 45 20 L 50 25 L 50 45 Q 50 50, 55 50 L 70 50 Q 75 50, 75 55 L 75 75 L 70 80 L 60 80 L 55 75" stroke-linejoin="round" stroke-width="2.5" fill="none"/>
-                    <path d="M 35 30 Q 40 35, 40 42" stroke-width="2" stroke-linecap="round" fill="none"/>
-                </svg>
-                <a href="tel:+33000000000">+33 (0)X XX XX XX XX</a>
-            </div>
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 50 20 Q 35 20, 35 35 Q 35 55, 50 75 Q 65 55, 65 35 Q 65 20, 50 20 Z" stroke-width="2.5"/>
-                    <circle cx="50" cy="38" r="8" fill="#4A9B9F" stroke="none"/>
-                </svg>
-                <span>Rennes & Partout en France</span>
+        <div class="project-card fade-in">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667EEA'/%3E%3Cstop offset='100%25' style='stop-color:%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g4)' width='800' height='600'/%3E%3Crect x='200' y='200' width='400' height='200' fill='white' opacity='0.2'/%3E%3C/svg%3E" alt="Évasion Digitale" class="project-image">
+            <div class="project-overlay">
+                <span class="project-category">Social Media</span>
+                <h3>Évasion Digitale</h3>
+                <p>Stratégie social media et production de contenu pour une chaîne d'hôtels boutique.</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Team Section -->
+<section id="team">
+    <div class="team-content fade-in">
+        <span class="section-label">L'Équipage</span>
+        <h2 class="section-title">Six talents,<br>une vision</h2>
+        <p class="section-subtitle">Nous sommes six associé(e)s réuni(e)s par une passion commune et des compétences complémentaires. Stratèges, créatifs, digital natives : notre diversité fait notre force.</p>
+    </div>
+    
+    <div class="team-stats">
+        <div class="team-stat-card fade-in">
+            <div class="team-stat-number serif">6</div>
+            <div class="team-stat-label">Associé(e)s</div>
+        </div>
+        <div class="team-stat-card fade-in">
+            <div class="team-stat-number serif">360°</div>
+            <div class="team-stat-label">Expertise</div>
+        </div>
+        <div class="team-stat-card fade-in">
+            <div class="team-stat-number serif">100%</div>
+            <div class="team-stat-label">Passion</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="fade-in">
+        <span class="section-label">Prenons Contact</span>
+        <h2 class="section-title">Embarquez<br>avec nous</h2>
+        <p class="section-subtitle">Prêt à faire voyager votre marque ? Échangeons sur votre prochain projet et dessinons ensemble votre prochaine destination.</p>
+    </div>
+    
+    <div class="contact-methods">
+        <div class="contact-card fade-in">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <a href="mailto:contact@odyssee-adgency.com">contact@odyssee-adgency.com</a>
+        </div>
+        
+        <div class="contact-card fade-in">
+            <div class="contact-icon">📞</div>
+            <h3>Téléphone</h3>
+            <a href="tel:+33000000000">+33 (0)X XX XX XX XX</a>
+        </div>
+        
+        <div class="contact-card fade-in">
+            <div class="contact-icon">📍</div>
+            <h3>Localisation</h3>
+            <p>Rennes & Partout en France</p>
+        </div>
+    </div>
+    
+    <div class="contact-cta fade-in">
+        <a href="mailto:contact@odyssee-adgency.com" class="btn-primary">Démarrer une conversation</a>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
     <p>&copy; 2025 Odyssée Adgency - L'art de faire voyager vos histoires</p>
-    <p style="margin-top: 0.8rem; font-size: 0.9rem;">Agence de communication 360° spécialisée en tourisme, voyage & hôtellerie</p>
+    <p>Agence de communication 360° spécialisée en tourisme, voyage & hôtellerie</p>
 </footer>
 
 <script>
-    // Burger Menu
+    // Navigation
     const burger = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
+    const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
     burger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         burger.classList.toggle('active');
-        
-        const spans = burger.querySelectorAll('span');
-        if (navMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(9px, 9px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(9px, -9px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
     });
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             burger.classList.remove('active');
-            const spans = burger.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
         });
     });
 
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
+        if (window.scrollY > 100) {
             navbar.classList.add('nav-scrolled');
         } else {
             navbar.classList.remove('nav-scrolled');
         }
-        
-        lastScroll = currentScroll;
     });
 
-    // Intersection Observer for Sections
+    // Intersection Observer for fade-in animations
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -1576,23 +1262,11 @@
         });
     }, observerOptions);
 
-    document.querySelectorAll('section').forEach(section => {
-        sectionObserver.observe(section);
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
     });
 
-    // Parallax Effect for Section Numbers
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        document.querySelectorAll('.section-number').forEach(num => {
-            const speed = 0.25;
-            const rect = num.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                num.style.transform = `translateY(${scrolled * speed}px)`;
-            }
-        });
-    });
-
-    // Smooth Scroll for Anchor Links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -1604,33 +1278,6 @@
                     behavior: 'smooth'
                 });
             }
-        });
-    });
-
-    // Video Handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const video = document.querySelector('.hero-video');
-        
-        if (video) {
-            video.play().catch(error => {
-                console.log('Autoplay bloqué par le navigateur');
-                const videoContainer = document.querySelector('.hero-video-container');
-                videoContainer.style.background = 'linear-gradient(135deg, #0A1628 0%, #1a3a52 50%, #4A9B9F 100%)';
-            });
-            
-            video.addEventListener('error', function() {
-                console.log('Erreur de chargement de la vidéo');
-                const videoContainer = document.querySelector('.hero-video-container');
-                videoContainer.style.background = 'linear-gradient(135deg, #0A1628 0%, #1a3a52 50%, #4A9B9F 100%)';
-                video.style.display = 'none';
-            });
-        }
-    });
-
-    // Loader for images
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-            console.log('Erreur de chargement d\'image:', this.src);
         });
     });
 </script></body>
