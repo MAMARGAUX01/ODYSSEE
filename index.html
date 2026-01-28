@@ -728,52 +728,84 @@
             font-size: 1rem;
         }
         
-      <!-- Projects Section -->
-<section id="projects" class="projects-section">
-    <div class="fade-in">
-        <span class="section-label">Nos Réalisations</span>
-        <h2 class="section-title">Des projets qui<br>ont marqué le voyage</h2>
-        <p class="section-subtitle">Une sélection de nos aventures créatives les plus mémorables.</p>
-    </div>
-    
-    <div class="projects-grid">
-        <div class="project-card fade-in">
-            <img src="assets/renaissance-mediterranee.jpg" alt="Renaissance Méditerranée" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Branding</span>
-                <h3>Renaissance Méditerranée</h3>
-                <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec.</p>
-            </div>
-        </div>
+        /* ===== PROJECTS SECTION ===== */
+        .projects-section {
+            background: var(--bg-light);
+        }
         
-        <div class="project-card fade-in">
-            <img src="assets/horizons-nouveaux.jpg" alt="Horizons Nouveaux" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Campagne 360°</span>
-                <h3>Horizons Nouveaux</h3>
-                <p>Campagne digitale pour rajeunir l'image d'une destination et capter les 25-40 ans CSP+.</p>
-            </div>
-        </div>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
         
-        <div class="project-card fade-in">
-            <img src="assets/luxe-navigation.jpg" alt="Luxe & Navigation" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">UX/UI Design</span>
-                <h3>Luxe & Navigation</h3>
-                <p>Expérience digitale immersive pour une compagnie de yachts de luxe.</p>
-            </div>
-        </div>
+        .project-card {
+            position: relative;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
         
-        <div class="project-card fade-in">
-            <img src="assets/evasion-digitale.jpg" alt="Évasion Digitale" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Social Media</span>
-                <h3>Évasion Digitale</h3>
-                <p>Stratégie social media et production de contenu pour une chaîne d'hôtels boutique.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.15);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, transparent 100%);
+            padding: 3rem;
+            transform: translateY(30%);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+        
+        .project-category {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-overlay h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .project-overlay p {
+            color: #CBD5E1;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
         
         /* ===== TEAM SECTION ===== */
         .team-content {
@@ -884,212 +916,214 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .contact-icon {width: 70px;
-        height: 70px;
-        background: var(--gradient-1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        font-size: 2rem;
-        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    
-    .contact-card:nth-child(2) .contact-icon {
-        background: var(--gradient-2);
-    }
-    
-    .contact-card:nth-child(3) .contact-icon {
-        background: var(--gradient-3);
-    }
-    
-    .contact-card:hover .contact-icon {
-        transform: scale(1.2) rotate(360deg);
-    }
-    
-    .contact-card h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        letter-spacing: -0.01em;
-    }
-    
-    .contact-card a,
-    .contact-card p {
-        color: #CBD5E1;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-    }
-    
-    .contact-card a:hover {
-        color: var(--accent-light);
-    }
-    
-    .contact-cta {
-        margin-top: 4rem;
-    }
-    
-    /* ===== FOOTER ===== */
-    footer {
-        background: var(--secondary);
-        color: #94A3B8;
-        padding: 3rem 6%;
-        text-align: center;
-    }
-    
-    footer p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-    
-    footer p:first-child {
-        margin-bottom: 0.5rem;
-    }
-    
-    /* ===== SCROLL ANIMATIONS ===== */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-        .hero-logo {
-            width: 150px;
-            margin-bottom: 2.5rem;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-        }
-        
-        .services-grid,
-        .values-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .story-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        section {
-            padding: 5rem 5%;
-        }
-        
-        nav {
-            padding: 1.2rem 5%;
-        }
-        
-        .nav-menu {
-            position: fixed;
-            right: -100%;
-            top: 0;
-            height: 100vh;
-            flex-direction: column;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(20px);
-            width: 80%;
-            padding: 6rem 2rem 3rem;
-            transition: right 0.4s ease;
-            justify-content: flex-start;
-            gap: 2rem;
-        }
-        
-        .nav-menu.active {
-            right: 0;
-        }
-        
-        .burger {
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 50%;
             display: flex;
-        }
-        
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-        
-        .hero-logo {
-            width: 120px;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.15rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-        }
-        
-        .services-grid,
-        .values-grid,
-        .projects-grid,
-        .contact-methods,
-        .team-stats {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .story-stats {
-            grid-template-columns: 1fr;
-        }
-        
-        .project-card {
-            height: 400px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .hero-logo {
-            width: 100px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.25rem;
-        }
-        
-        .section-title {
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
             font-size: 2rem;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
-        .hero-cta {
-            flex-direction: column;
+        .contact-card:nth-child(2) .contact-icon {
+            background: var(--gradient-2);
         }
         
-        .btn-primary,
-        .btn-secondary {
-            width: 100%;
+        .contact-card:nth-child(3) .contact-icon {
+            background: var(--gradient-3);
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .contact-card a,
+        .contact-card p {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent-light);
+        }
+        
+        .contact-cta {
+            margin-top: 4rem;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--secondary);
+            color: #94A3B8;
+            padding: 3rem 6%;
             text-align: center;
         }
-    }
-</style></head>
+        
+        footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        footer p:first-child {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-logo {
+                width: 150px;
+                margin-bottom: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .services-grid,
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 5%;
+            }
+            
+            nav {
+                padding: 1.2rem 5%;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                height: 100vh;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                width: 80%;
+                padding: 6rem 2rem 3rem;
+                transition: right 0.4s ease;
+                justify-content: flex-start;
+                gap: 2rem;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .burger {
+                display: flex;
+            }
+            
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+            
+            .hero-logo {
+                width: 120px;
+                margin-bottom: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid,
+            .values-grid,
+            .projects-grid,
+            .contact-methods,
+            .team-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .story-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-logo {
+                width: 100px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
@@ -1107,312 +1141,315 @@
             <span></span>
             <span></span>
         </div>
-    </nav><!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-        <img src="assets/logo.png" alt="Odyssée Adgency Logo" class="hero-logo">
-        <h1 class="serif">L'art de faire voyager<br>vos <span class="gradient-text">histoires</span></h1>
-        <p class="hero-subtitle">Spécialistes du tourisme, du voyage et de l'hôtellerie. Nous transformons vos émotions en stratégies de marque puissantes et mémorables.</p>
-        <div class="hero-cta">
-            <a href="#contact" class="btn-primary">Démarrer un projet</a>
-            <a href="#services" class="btn-secondary">Découvrir nos services</a>
-        </div>
-    </div>
-    <div class="scroll-indicator"></div>
-</section>
+    </nav>
 
-<!-- Story Section -->
-<section id="story" class="story-section">
-    <div class="fade-in">
-        <span class="section-label">Notre Odyssée</span>
-        <h2 class="section-title">D'un Erasmus<br>à une agence</h2>
-        <p class="section-subtitle">Six étudiants, une passion commune, une vision partagée.</p>
-    </div>
-    
-    <div class="story-grid">
-        <div class="story-text fade-in">
-            <p>Tout a commencé bien loin d'un bureau. Six étudiants, six caractères, un Erasmus. Des valises trop pleines, des nuits à refaire le monde et surtout, <span class="story-highlight">une passion commune : raconter des histoires.</span></p>
-            <p>Entre deux avions, des découvertes culturelles et mille anecdotes partagées, une évidence s'est imposée : nous voulions continuer le voyage, ensemble.</p>
-            <p>De cette évidence est née <span class="story-highlight">Odyssée Adgency</span>, une agence de communication globale 360° spécialisée dans le tourisme, le voyage et l'hôtellerie.</p>
-            <p><strong>Chez Odyssée Adgency, on ne promet pas de faire rêver. On le provoque.</strong></p>
-        </div>
-        
-        <div class="story-stats">
-            <div class="stat-card fade-in">
-                <div class="stat-number serif">2025</div>
-                <div class="stat-label">Année de création</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number serif">6</div>
-                <div class="stat-label">Associés fondateurs</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number serif">360°</div>
-                <div class="stat-label">Approche globale</div>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number serif">∞</div>
-                <div class="stat-label">Possibilités créatives</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/logo.png" alt="Odyssée Adgency Logo" class="hero-logo">
+            <h1 class="serif">L'art de faire voyager<br>vos <span class="gradient-text">histoires</span></h1>
+            <p class="hero-subtitle">Spécialistes du tourisme, du voyage et de l'hôtellerie. Nous transformons vos émotions en stratégies de marque puissantes et mémorables.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn-primary">Démarrer un projet</a>
+                <a href="#services" class="btn-secondary">Découvrir nos services</a>
             </div>
         </div>
-    </div>
-</section>
+        <div class="scroll-indicator"></div>
+    </section>
 
-<!-- Services Section -->
-<section id="services">
-    <div class="fade-in">
-        <span class="section-label">Nos Services</span>
-        <h2 class="section-title">Escales créatives</h2>
-        <p class="section-subtitle">Une approche 360° pour faire décoller votre marque dans l'univers du voyage.</p>
-    </div>
-    
-    <div class="services-grid">
-        <div class="service-card fade-in">
-            <div class="service-icon">🎯</div>
-            <h3>Stratégie de Marque</h3>
-            <p>Positionnement, identité, storytelling. Nous définissons la boussole qui guidera toutes vos communications.</p>
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="fade-in">
+            <span class="section-label">Notre Odyssée</span>
+            <h2 class="section-title">D'un Erasmus<br>à une agence</h2>
+            <p class="section-subtitle">Six étudiants, une passion commune, une vision partagée.</p>
         </div>
         
-        <div class="service-card fade-in">
-            <div class="service-icon">✨</div>
-            <h3>Branding & Identité</h3>
-            <p>Logos, chartes graphiques, univers visuels qui incarnent l'essence de votre destination.</p>
+        <div class="story-grid">
+            <div class="story-text fade-in">
+                <p>Tout a commencé bien loin d'un bureau. Six étudiants, six caractères, un Erasmus. Des valises trop pleines, des nuits à refaire le monde et surtout, <span class="story-highlight">une passion commune : raconter des histoires.</span></p>
+                <p>Entre deux avions, des découvertes culturelles et mille anecdotes partagées, une évidence s'est imposée : nous voulions continuer le voyage, ensemble.</p>
+                <p>De cette évidence est née <span class="story-highlight">Odyssée Adgency</span>, une agence de communication globale 360° spécialisée dans le tourisme, le voyage et l'hôtellerie.</p>
+                <p><strong>Chez Odyssée Adgency, on ne promet pas de faire rêver. On le provoque.</strong></p>
+            </div>
+            
+            <div class="story-stats">
+                <div class="stat-card fade-in">
+                    <div class="stat-number serif">2025</div>
+                    <div class="stat-label">Année de création</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number serif">6</div>
+                    <div class="stat-label">Associés fondateurs</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number serif">360°</div>
+                    <div class="stat-label">Approche globale</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number serif">∞</div>
+                    <div class="stat-label">Possibilités créatives</div>
+                </div>
+            </div>
         </div>
-        
-        <div class="service-card fade-in">
-            <div class="service-icon">📱</div>
-            <h3>Social Media</h3>
-            <p>Stratégie éditoriale, création de contenu et community management qui engagent.</p>
-        </div>
-        
-        <div class="service-card fade-in">
-            <div class="service-icon">🚀</div>
-            <h3>Campagnes Digitales</h3>
-            <p>Publicité digitale, SEA, influence marketing pour générer visibilité et conversions.</p>
-        </div>
-        
-        <div class="service-card fade-in">
-            <div class="service-icon">🎬</div>
-            <h3>Production Créative</h3>
-            <p>Photo, vidéo, motion design pour capturer l'émotion du voyage.</p>
-        </div>
-        
-        <div class="service-card fade-in">
-            <div class="service-icon">💻</div>
-            <h3>Digital Experience</h3>
-            <p>Sites web, UX/UI, expériences immersives qui transforment chaque visite en aventure.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Values Section -->
-<section id="values" class="values-section">
-    <div class="fade-in">
-        <span class="section-label">Notre ADN</span>
-        <h2 class="section-title">Les valeurs qui<br>nous guident</h2>
-        <p class="section-subtitle">Notre boussole, notre carburant, notre cap.</p>
-    </div>
-    
-    <div class="values-grid">
-        <div class="value-card fade-in">
-            <div class="value-icon">🧭</div>
-            <h3>Curiosité</h3>
-            <p>Notre boussole. Nous explorons sans cesse de nouveaux horizons créatifs pour offrir des stratégies innovantes.</p>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="fade-in">
+            <span class="section-label">Nos Services</span>
+            <h2 class="section-title">Escales créatives</h2>
+            <p class="section-subtitle">Une approche 360° pour faire décoller votre marque dans l'univers du voyage.</p>
         </div>
         
-        <div class="value-card fade-in">
-            <div class="value-icon">⚡</div>
-            <h3>Audace</h3>
-            <p>Notre carburant. Nous osons des concepts inattendus et des prises de parole qui sortent du lot.</p>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3>Stratégie de Marque</h3>
+                <p>Positionnement, identité, storytelling. Nous définissons la boussole qui guidera toutes vos communications.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">✨</div>
+                <h3>Branding & Identité</h3>
+                <p>Logos, chartes graphiques, univers visuels qui incarnent l'essence de votre destination.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">📱</div>
+                <h3>Social Media</h3>
+                <p>Stratégie éditoriale, création de contenu et community management qui engagent.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">🚀</div>
+                <h3>Campagnes Digitales</h3>
+                <p>Publicité digitale, SEA, influence marketing pour générer visibilité et conversions.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">🎬</div>
+                <h3>Production Créative</h3>
+                <p>Photo, vidéo, motion design pour capturer l'émotion du voyage.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">💻</div>
+                <h3>Digital Experience</h3>
+                <p>Sites web, UX/UI, expériences immersives qui transforment chaque visite en aventure.</p>
+            </div>
         </div>
-        
-        <div class="value-card fade-in">
-            <div class="value-icon">💫</div>
-            <h3>Authenticité</h3>
-            <p>Notre cap. Nous créons des histoires vraies qui résonnent et créent des connexions durables.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-    <div class="fade-in">
-        <span class="section-label">Nos Réalisations</span>
-        <h2 class="section-title">Des projets qui<br>ont marqué le voyage</h2>
-        <p class="section-subtitle">Une sélection de nos aventures créatives les plus mémorables.</p>
-    </div>
-    
-    <div class="projects-grid">
-        <div class="project-card fade-in">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667EEA'/%3E%3Cstop offset='100%25' style='stop-color:%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='800' height='600'/%3E%3Cpath d='M0,300 Q200,200 400,300 T800,300' stroke='white' stroke-width='3' fill='none' opacity='0.3'/%3E%3C/svg%3E" alt="Renaissance Méditerranée" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Branding</span>
-                <h3>Renaissance Méditerranée</h3>
-                <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec.</p>
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+        <div class="fade-in">
+            <span class="section-label">Notre ADN</span>
+            <h2 class="section-title">Les valeurs qui<br>nous guident</h2>
+            <p class="section-subtitle">Notre boussole, notre carburant, notre cap.</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card fade-in">
+                <div class="value-icon">🧭</div>
+                <h3>Curiosité</h3>
+                <p>Notre boussole. Nous explorons sans cesse de nouveaux horizons créatifs pour offrir des stratégies innovantes.</p>
+            </div>
+            
+            <div class="value-card fade-in">
+                <div class="value-icon">⚡</div>
+                <h3>Audace</h3>
+                <p>Notre carburant. Nous osons des concepts inattendus et des prises de parole qui sortent du lot.</p>
+            </div>
+            
+            <div class="value-card fade-in">
+                <div class="value-icon">💫</div>
+                <h3>Authenticité</h3>
+                <p>Notre cap. Nous créons des histoires vraies qui résonnent et créent des connexions durables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="fade-in">
+            <span class="section-label">Nos Réalisations</span>
+            <h2 class="section-title">Des projets qui<br>ont marqué le voyage</h2>
+            <p class="section-subtitle">Une sélection de nos aventures créatives les plus mémorables.</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <img src="assets/renaissance-mediterranee.jpg" alt="Renaissance Méditerranée" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">Branding</span>
+                    <h3>Renaissance Méditerranée</h3>
+                    <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec.</p>
+                </div>
+            </div>
+            
+            <div class="project-card fade-in">
+                <img src="assets/horizons-nouveaux.jpg" alt="Horizons Nouveaux" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">Campagne 360°</span>
+                    <h3>Horizons Nouveaux</h3>
+                    <p>Campagne digitale cross-canal : stratégie social media, publicités ciblées et landing pages optimisées pour capter une nouvelle génération de voyageurs.</p>
+                </div>
+            </div>
+            
+            <div class="project-card fade-in">
+                <img src="assets/luxe-navigation.jpg" alt="Luxe & Navigation" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">UX/UI Design</span>
+                    <h3>Luxe & Navigation</h3>
+                    <p>Expérience digitale immersive pour une compagnie de yachts de luxe.</p>
+                </div>
+            </div>
+            
+            <div class="project-card fade-in">
+                <img src="assets/evasion-digitale.jpg" alt="Évasion Digitale" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">Social Media</span>
+                    <h3>Évasion Digitale</h3>
+                    <p>Stratégie éditoriale Instagram & TikTok, production de contenu quotidien et community management pour tripler l'engagement d'une chaîne d'hôtels boutique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="team-content fade-in">
+            <span class="section-label">L'Équipage</span>
+            <h2 class="section-title">Six talents,<br>une vision</h2>
+            <p class="section-subtitle">Nous sommes six associé(e)s réuni(e)s par une passion commune et des compétences complémentaires. Stratèges, créatifs, digital natives : notre diversité fait notre force.</p>
+        </div>
+        
+        <div class="team-stats">
+            <div class="team-stat-card fade-in">
+                <div class="team-stat-number serif">6</div>
+                <div class="team-stat-label">Associé(e)s</div>
+            </div>
+            <div class="team-stat-card fade-in">
+                <div class="team-stat-number serif">360°</div>
+                <div class="team-stat-label">Expertise</div>
+            </div>
+            <div class="team-stat-card fade-in">
+                <div class="team-stat-number serif">100%</div>
+                <div class="team-stat-label">Passion</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="fade-in">
+            <span class="section-label">Prenons Contact</span>
+            <h2 class="section-title">Embarquez<br>avec nous</h2>
+            <p class="section-subtitle">Prêt à faire voyager votre marque ? Échangeons sur votre prochain projet et dessinons ensemble votre prochaine destination.</p>
+        </div>
+        
+        <div class="contact-methods">
+            <div class="contact-card fade-in">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <a href="mailto:contact@odyssee-adgency.com">contact@odyssee-adgency.com</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <div class="contact-icon">📞</div>
+                <h3>Téléphone</h3>
+                <a href="tel:+33000000000">+33 (0)X XX XX XX XX</a>
+            </div>
+            
+            <div class="contact-card fade-in">
+                <div class="contact-icon">📍</div>
+                <h3>Localisation</h3>
+                <p>Rennes & Partout en France</p>
             </div>
         </div>
         
-        <div class="project-card fade-in">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23F093FB'/%3E%3Cstop offset='100%25' style='stop-color:%23F5576C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g2)' width='800' height='600'/%3E%3Cpath d='M100,500 L200,300 L400,200 L600,250 L700,400' stroke='white' stroke-width='4' fill='none' opacity='0.4'/%3E%3C/svg%3E" alt="Horizons Nouveaux" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Campagne 360°</span>
-                <h3>Horizons Nouveaux</h3>
-                <p>Campagne digitale pour rajeunir l'image d'une destination et capter les 25-40 ans CSP+.</p>
-            </div>
+        <div class="contact-cta fade-in">
+            <a href="mailto:contact@odyssee-adgency.com" class="btn-primary">Démarrer une conversation</a>
         </div>
-        
-        <div class="project-card fade-in">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234FACFE'/%3E%3Cstop offset='100%25' style='stop-color:%2300F2FE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g3)' width='800' height='600'/%3E%3Ccircle cx='400' cy='300' r='120' fill='white' opacity='0.2'/%3E%3C/svg%3E" alt="Luxe & Navigation" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">UX/UI Design</span>
-                <h3>Luxe & Navigation</h3>
-                <p>Expérience digitale immersive pour une compagnie de yachts de luxe.</p>
-            </div>
-        </div>
-        
-        <div class="project-card fade-in">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='g4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667EEA'/%3E%3Cstop offset='100%25' style='stop-color:%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g4)' width='800' height='600'/%3E%3Crect x='200' y='200' width='400' height='200' fill='white' opacity='0.2'/%3E%3C/svg%3E" alt="Évasion Digitale" class="project-image">
-            <div class="project-overlay">
-                <span class="project-category">Social Media</span>
-                <h3>Évasion Digitale</h3>
-                <p>Stratégie social media et production de contenu pour une chaîne d'hôtels boutique.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Team Section -->
-<section id="team">
-    <div class="team-content fade-in">
-        <span class="section-label">L'Équipage</span>
-        <h2 class="section-title">Six talents,<br>une vision</h2>
-        <p class="section-subtitle">Nous sommes six associé(e)s réuni(e)s par une passion commune et des compétences complémentaires. Stratèges, créatifs, digital natives : notre diversité fait notre force.</p>
-    </div>
-    
-    <div class="team-stats">
-        <div class="team-stat-card fade-in">
-            <div class="team-stat-number serif">6</div>
-            <div class="team-stat-label">Associé(e)s</div>
-        </div>
-        <div class="team-stat-card fade-in">
-            <div class="team-stat-number serif">360°</div>
-            <div class="team-stat-label">Expertise</div>
-        </div>
-        <div class="team-stat-card fade-in">
-            <div class="team-stat-number serif">100%</div>
-            <div class="team-stat-label">Passion</div>
-        </div>
-    </div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Odyssée Adgency - L'art de faire voyager vos histoires</p>
+        <p>Agence de communication 360° spécialisée en tourisme, voyage & hôtellerie</p>
+    </footer>
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="fade-in">
-        <span class="section-label">Prenons Contact</span>
-        <h2 class="section-title">Embarquez<br>avec nous</h2>
-        <p class="section-subtitle">Prêt à faire voyager votre marque ? Échangeons sur votre prochain projet et dessinons ensemble votre prochaine destination.</p>
-    </div>
-    
-    <div class="contact-methods">
-        <div class="contact-card fade-in">
-            <div class="contact-icon">✉️</div>
-            <h3>Email</h3>
-            <a href="mailto:contact@odyssee-adgency.com">contact@odyssee-adgency.com</a>
-        </div>
-        
-        <div class="contact-card fade-in">
-            <div class="contact-icon">📞</div>
-            <h3>Téléphone</h3>
-            <a href="tel:+33000000000">+33 (0)X XX XX XX XX</a>
-        </div>
-        
-        <div class="contact-card fade-in">
-            <div class="contact-icon">📍</div>
-            <h3>Localisation</h3>
-            <p>Rennes & Partout en France</p>
-        </div>
-    </div>
-    
-    <div class="contact-cta fade-in">
-        <a href="mailto:contact@odyssee-adgency.com" class="btn-primary">Démarrer une conversation</a>
-    </div>
-</section>
+    <script>
+        // Navigation
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-menu a');
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Odyssée Adgency - L'art de faire voyager vos histoires</p>
-    <p>Agence de communication 360° spécialisée en tourisme, voyage & hôtellerie</p>
-</footer>
-
-<script>
-    // Navigation
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('navMenu');
-    const navbar = document.getElementById('navbar');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    burger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        burger.classList.toggle('active');
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            burger.classList.remove('active');
+        burger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            burger.classList.toggle('active');
         });
-    });
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.classList.add('nav-scrolled');
-        } else {
-            navbar.classList.remove('nav-scrolled');
-        }
-    });
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
 
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
             }
         });
-    }, observerOptions);
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero::before, .hero::after');
+            
+            if (scrolled < window.innerHeight) {
+                document.querySelector('.hero::before') && (document.querySelector('.hero').style.setProperty('--scroll', scrolled * 0.5 + 'px'));
             }
         });
-    });
-
-    // Parallax effect for hero background elements
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero::before, .hero::after');
-        
-        if (scrolled < window.innerHeight) {
-            document.querySelector('.hero::before') && (document.querySelector('.hero').style.setProperty('--scroll', scrolled * 0.5 + 'px'));
-        }
-    });
-</script></body>
+    </script>
+</body>
 </html>
