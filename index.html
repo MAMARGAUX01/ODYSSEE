@@ -728,84 +728,52 @@
             font-size: 1rem;
         }
         
-        /* ===== PROJECTS SECTION ===== */
-        .projects-section {
-            background: var(--bg-light);
-        }
+      <!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="fade-in">
+        <span class="section-label">Nos Réalisations</span>
+        <h2 class="section-title">Des projets qui<br>ont marqué le voyage</h2>
+        <p class="section-subtitle">Une sélection de nos aventures créatives les plus mémorables.</p>
+    </div>
+    
+    <div class="projects-grid">
+        <div class="project-card fade-in">
+            <img src="assets/renaissance-mediterranee.jpg" alt="Renaissance Méditerranée" class="project-image">
+            <div class="project-overlay">
+                <span class="project-category">Branding</span>
+                <h3>Renaissance Méditerranée</h3>
+                <p>Repositionnement complet d'un groupe hôtelier avec une nouvelle identité visuelle inspirée de l'art grec.</p>
+            </div>
+        </div>
         
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
+        <div class="project-card fade-in">
+            <img src="assets/horizons-nouveaux.jpg" alt="Horizons Nouveaux" class="project-image">
+            <div class="project-overlay">
+                <span class="project-category">Campagne 360°</span>
+                <h3>Horizons Nouveaux</h3>
+                <p>Campagne digitale pour rajeunir l'image d'une destination et capter les 25-40 ans CSP+.</p>
+            </div>
+        </div>
         
-        .project-card {
-            position: relative;
-            height: 500px;
-            border-radius: 24px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        <div class="project-card fade-in">
+            <img src="assets/luxe-navigation.jpg" alt="Luxe & Navigation" class="project-image">
+            <div class="project-overlay">
+                <span class="project-category">UX/UI Design</span>
+                <h3>Luxe & Navigation</h3>
+                <p>Expérience digitale immersive pour une compagnie de yachts de luxe.</p>
+            </div>
+        </div>
         
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.8s ease;
-        }
-        
-        .project-card:hover .project-image {
-            transform: scale(1.15);
-        }
-        
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, transparent 100%);
-            padding: 3rem;
-            transform: translateY(30%);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .project-card:hover .project-overlay {
-            transform: translateY(0);
-        }
-        
-        .project-category {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--accent-light);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 0.02em;
-            backdrop-filter: blur(10px);
-        }
-        
-        .project-overlay h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .project-overlay p {
-            color: #CBD5E1;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
+        <div class="project-card fade-in">
+            <img src="assets/evasion-digitale.jpg" alt="Évasion Digitale" class="project-image">
+            <div class="project-overlay">
+                <span class="project-category">Social Media</span>
+                <h3>Évasion Digitale</h3>
+                <p>Stratégie social media et production de contenu pour une chaîne d'hôtels boutique.</p>
+            </div>
+        </div>
+    </div>
+</section>
         
         /* ===== TEAM SECTION ===== */
         .team-content {
